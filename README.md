@@ -13,6 +13,8 @@ In addition
 
 ## WireFrames
 
+<img src="https://github.com/pdlai/muse-slash/blob/main/wireframe.png"></img>
+
 - Nav links include links to Github repo, LinkedIn and AngelList, and the About modal.
 - Game controls will be included in background until game start.
 - Health Bar will show a guage that decreases as health is lost.
