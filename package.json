@@ -1,0 +1,38 @@
+{
+  "name": "muse-slash",
+  "version": "1.0.0",
+  "description": "MuseSlash is a fast paced music rhythm game where you hit notes that appear on the screen to score points. Notes will appear on the right side of the screen and slide towards the left. Missing too many notes will cause you to lose the game.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdlai/muse-slash.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pdlai/muse-slash/issues"
+  },
+  "homepage": "https://github.com/pdlai/muse-slash#readme",
+  "dependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "core-js": "^3.21.1",
+    "css-loader": "^6.6.0",
+    "mini-css-extract-plugin": "^2.5.3",
+    "regenerator-runtime": "^0.13.9",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "browserslist": [
+    "defaults"
+  ]
+}
