@@ -1,2 +1,2 @@
-# muse-slash
+# Muse Slash
 Rhythm Slashing Game
