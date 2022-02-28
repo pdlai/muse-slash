@@ -3,6 +3,84 @@
     display: none;
 }
 
+body {
+    background-color: violet;
+}
+
 #game-canvas {
     background-color: orange;
+}
+
+.instructions .key-sprite {
+    width: 19px;
+    height: 21px;
+    animation: instruction-animation .8s steps(3) infinite;
+    zoom: 150%;
+}
+
+.instructions #d-key{
+    background: url("../assets/buttons/D.png");
+    // position: absolute;
+    // top: 100px;
+}
+
+.instructions #f-key{
+    background: url("../assets/buttons/F.png");
+}
+
+.instructions #j-key{
+    background: url("../assets/buttons/J.png");
+}
+
+.instructions #k-key{
+    background: url("../assets/buttons/K.png");
+}
+
+@keyframes instruction-animation {
+    100% { background-position: -57px; }
+}
+
+.player {
+    width: 200px;
+    height: 200px;
+    zoom: 120%;
+}
+
+.player.run {
+    background: url("../assets/character/Run.png");
+    animation: player-running-animation .4s steps(8) infinite;
+    // position: absolute;
+    // top: 180px;
+}
+
+.player.attack1 {
+    background: url("../assets/character/Run.png");
+    animation: player-running-animation .4s steps(8) infinite;
+    // position: absolute;
+    // top: 180px;
+}
+
+.player.attack2 {
+    background: url("../assets/character/Run.png");
+    animation: player-running-animation .4s steps(8) infinite;
+    // position: absolute;
+    // top: 180px;
+}
+
+.player.jump {
+    background: url("../assets/character/Run.png");
+    animation: player-running-animation .4s steps(8) infinite;
+    // position: absolute;
+    // top: 180px;
+}
+
+.player.fall {
+    background: url("../assets/character/Run.png");
+    animation: player-running-animation .4s steps(8) infinite;
+    // position: absolute;
+    // top: 180px;
+}
+
+@keyframes player-running-animation {
+    100% { background-position: -1600px; }
 }
