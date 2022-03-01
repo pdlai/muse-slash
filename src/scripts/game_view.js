@@ -6,8 +6,13 @@ class GameView {
         this.game = game;
         this.ctx = ctx;
         this.topNote = new Image();
-        this.topNote.src = '../../assets/enemies/ghost.png'
+        this.topNote.src = './assets/enemies/ghost.png';
+        this.botNote = new Image();
+        this.botNote.src = './assets/enemies/frog.png';
         this.setup();
+        this.topNote.addEventListener('load', () => {
+            this.ctx.drawImage(this.topNote, 120, 120);
+        });
     }
 
     setup(){
@@ -29,10 +34,17 @@ class GameView {
             let action = Menu.eventHandler(e);
             if (action === "play and render level"){
                 this.game.play("test_song");
+                // this.gameLoop();
             }
             // console.log(e);
         });
     }
+
+    gameLoop(){
+        console.log("yo")
+        requestAnimationFrame(this.gameLoop());
+    }
+
 
 }
 
