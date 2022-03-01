@@ -1,3 +1,98 @@
-.hidden{display:none}body{background-color:violet}#game-canvas{background-color:orange}.instructions .key-sprite{width:19px;height:21px;animation:instruction-animation .8s steps(3) infinite;zoom:150%}.instructions #d-key{background:url("../assets/buttons/D.png")}.instructions #f-key{background:url("../assets/buttons/F.png")}.instructions #j-key{background:url("../assets/buttons/J.png")}.instructions #k-key{background:url("../assets/buttons/K.png")}@keyframes instruction-animation{100%{background-position:-57px}}.player{width:200px;height:200px;zoom:120%}.player.run{background:url("../assets/character/Run.png");animation:player-running-animation .4s steps(8) infinite}.player.attack1{background:url("../assets/character/Run.png");animation:player-running-animation .4s steps(8) infinite}.player.attack2{background:url("../assets/character/Run.png");animation:player-running-animation .4s steps(8) infinite}.player.jump{background:url("../assets/character/Run.png");animation:player-running-animation .4s steps(8) infinite}.player.fall{background:url("../assets/character/Run.png");animation:player-running-animation .4s steps(8) infinite}@keyframes player-running-animation{100%{background-position:-1600px}}
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+.hidden {
+  display: none;
+}
 
-/*# sourceMappingURL=main.css.map*/
+body {
+  background-color: violet;
+}
+
+.instructions .key-sprite {
+  width: 19px;
+  height: 21px;
+  animation: instruction-animation 0.8s steps(3) infinite;
+  zoom: 150%;
+}
+
+.instructions #d-key {
+  background: url("../assets/buttons/D.png");
+}
+
+.instructions #f-key {
+  background: url("../assets/buttons/F.png");
+}
+
+.instructions #j-key {
+  background: url("../assets/buttons/J.png");
+}
+
+.instructions #k-key {
+  background: url("../assets/buttons/K.png");
+}
+
+@keyframes instruction-animation {
+  100% {
+    background-position: -57px;
+  }
+}
+#game-canvas {
+  background: url("../assets/background/Layer_0002_7.png"), url("../assets/background/Layer_0001_8.png"), url("../assets/background/Layer_0003_6.png"), url("../assets/background/Layer_0004_Lights.png"), url("../assets/background/Layer_0005_5.png"), url("../assets/background/Layer_0006_4.png"), url("../assets/background/Layer_0007_Lights.png"), url("../assets/background/Layer_0008_3.png"), url("../assets/background/Layer_0009_2.png"), url("../assets/background/Layer_0010_1.png"), url("../assets/background/Layer_0011_0.png");
+}
+
+.game-canvas.start {
+  background-repeat: repeat-x, repeat-x;
+  animation: background-loop 4s infinite;
+  animation-timing-function: linear;
+  animation-direction: reverse;
+}
+
+@keyframes background-loop {
+  100% {
+    background-position: 928px 0px;
+  }
+}
+.user-player {
+  transform: scale(2);
+  width: 200px;
+  height: 200px;
+  zoom: 120%;
+  position: absolute;
+  top: 300px;
+}
+
+.user-player.stopped {
+  background-image: url("../assets/character/Idle.png");
+}
+
+.user-player.run {
+  background: url("../assets/character/Run.png");
+  animation: player-running-animation 0.4s steps(8) infinite;
+}
+
+.user-player.attack1 {
+  background: url("../assets/character/Run.png");
+  animation: player-running-animation 0.4s steps(8) infinite;
+}
+
+.user-player.attack2 {
+  background: url("../assets/character/Run.png");
+  animation: player-running-animation 0.4s steps(8) infinite;
+}
+
+.user-player.jump {
+  background: url("../assets/character/Run.png");
+  animation: player-running-animation 0.4s steps(8) infinite;
+}
+
+.user-player.fall {
+  background: url("../assets/character/Run.png");
+  animation: player-running-animation 0.4s steps(8) infinite;
+}
+
+@keyframes player-running-animation {
+  100% {
+    background-position: -1600px;
+  }
+}

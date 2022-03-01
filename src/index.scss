@@ -8,7 +8,8 @@ body {
 }
 
 #game-canvas {
-    background-color: orange;
+    // background-color: orange;
+    // position: absolute;
 }
 
 .instructions .key-sprite {
@@ -40,41 +41,78 @@ body {
     100% { background-position: -57px; }
 }
 
-.player {
+#game-canvas {
+    background: url("../assets/background/Layer_0002_7.png"), 
+    url("../assets/background/Layer_0001_8.png"),
+    url("../assets/background/Layer_0003_6.png"),
+    url("../assets/background/Layer_0004_Lights.png"),
+    url("../assets/background/Layer_0005_5.png"),
+    url("../assets/background/Layer_0006_4.png"),
+    url("../assets/background/Layer_0007_Lights.png"),
+    url("../assets/background/Layer_0008_3.png"),
+    url("../assets/background/Layer_0009_2.png"),
+    url("../assets/background/Layer_0010_1.png"),
+    url("../assets/background/Layer_0011_0.png");
+}
+
+.game-canvas.start {
+    background-repeat: repeat-x, repeat-x;
+    animation: background-loop 4s infinite;
+    animation-timing-function: linear;
+    animation-direction: reverse;
+}
+
+@keyframes background-loop {
+    100% {
+        background-position: 928px 0px;
+    }
+}
+
+.user-player {
+    transform: scale(2);
     width: 200px;
     height: 200px;
     zoom: 120%;
+    position: absolute;
+    // top: 550px;
+    top: 300px;
 }
 
-.player.run {
+.user-player.stopped {
+    background-image: url("../assets/character/Idle.png");
+    // height: 200px;
+    // width: 200px;
+}
+
+.user-player.run {
+    background: url("../assets/character/Run.png");
+    animation: player-running-animation .4s steps(8) infinite;
+}
+
+
+// change all these they are copies of run
+.user-player.attack1 {
     background: url("../assets/character/Run.png");
     animation: player-running-animation .4s steps(8) infinite;
     // position: absolute;
     // top: 180px;
 }
 
-.player.attack1 {
+.user-player.attack2 {
     background: url("../assets/character/Run.png");
     animation: player-running-animation .4s steps(8) infinite;
     // position: absolute;
     // top: 180px;
 }
 
-.player.attack2 {
+.user-player.jump {
     background: url("../assets/character/Run.png");
     animation: player-running-animation .4s steps(8) infinite;
     // position: absolute;
     // top: 180px;
 }
 
-.player.jump {
-    background: url("../assets/character/Run.png");
-    animation: player-running-animation .4s steps(8) infinite;
-    // position: absolute;
-    // top: 180px;
-}
-
-.player.fall {
+.user-player.fall {
     background: url("../assets/character/Run.png");
     animation: player-running-animation .4s steps(8) infinite;
     // position: absolute;

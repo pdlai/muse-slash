@@ -4,12 +4,22 @@ const Menu = {
         if( e.target === document.getElementById("play-button") ){
             this.hideMainMenu();
             this.showPauseButton();
-            this.showPlayer();
-            return "play and render level";
+            this.startPlayer();
+            this.startBackground();
+            return "play-level";
         }
         if ( e.target === document.getElementById("pause-button") ){
             this.showPauseMenu();
-            return "pause the game with this action here somehow";
+            this.stopBackground();
+            this.stopPlayer();
+            return "pause";
+        }
+        if ( e.target === document.getElementById("resume-button") ){
+            // something to pause the game here
+            this.hidePauseMenu();
+            this.startBackground();
+            this.startPlayer();
+            return "resume";
         }
         if ( e.target === document.getElementById("main-menu-button") ){
             // something to pause the game here
@@ -17,18 +27,33 @@ const Menu = {
             this.hidePauseButton();
             this.showMainMenu();
             this.hidePlayer();
-            return "redirect to main menu with this return action";
+            return "main-menu";
         }
     },
 
-    showPlayer: function(){
-        const game = document.getElementById("game-player");
-        game.className = "game-player";
+    startBackground(){
+        const background = document.getElementById("game-canvas");
+        background.className = "game-canvas start";
+    },
+
+    stopBackground(){
+        const background = document.getElementById("game-canvas");
+        background.className = "game-canvas stopped";
+    },
+
+    startPlayer: function(){
+        const game = document.getElementById("user-player");
+        game.className = "user-player run";
+    },
+
+    stopPlayer: function(){
+        const game = document.getElementById("user-player");
+        game.className = "user-player stopped";
     },
 
     hidePlayer: function(){
-        const game = document.getElementById("game-player");
-        game.className = "game-player hidden";
+        const game = document.getElementById("user-player");
+        game.className = "user-player hidden";
     },
 
     showMainMenu: function(){

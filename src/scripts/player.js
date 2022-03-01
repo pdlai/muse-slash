@@ -1,7 +1,7 @@
 class Player {
     constructor(){
         let player = document.getElementById("user-player");
-        player.className = "player run";
+        player.className = "user-player run";
     }
 }
 

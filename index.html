@@ -12,7 +12,8 @@
     <h1>Muse Slash</h1>
     <div class="test hidden">test stuff</div>
     <div id="test2">test stuff 2</div>
-    <canvas id="game-canvas" width="900px" height="500px"></canvas>
+
+    <canvas class="game-canvas stopped" id="game-canvas" width="900px" height="500px"></canvas>
 
     <nav class="professional-links">
         <a href="https://github.com/pdlai"><input type="submit" value="Github"></a>
@@ -35,15 +36,14 @@
     <div class="pause-button hidden" id="pause-button">Pause Symbol</div>
 
     <div class="pause-menu hidden" id="pause-menu">
+        <div id="resume-button">Resume</div>
         <div id="restart-level-button">Restart Level</div>
         <div id="main-menu-button">Main Menu</div>
     </div>
 
-    <div class="game-player hidden" id="game-player">
-        <div id="user-player">
-            <div id="health-bar">200</div>
-            <div id="current-score">50</div>
-        </div>
+    <div id="user-player" class="user-player hidden">
+        <div id="health-bar">200</div>
+        <div id="current-score">50</div>
     </div>
 
     <div class="volume">Volume
