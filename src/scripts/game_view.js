@@ -1,6 +1,7 @@
 import Menu from "./menu";
 import Background from "./background";
 import Game from "./game";
+import Display from "./display";
 
 class GameView {
     constructor(game, ctx, canvas){
@@ -14,9 +15,9 @@ class GameView {
     // 928x793
     setup(){
         this.setWindowResize();
-        this.setClickEvent();
         this.background = new Background(this.ctx, this.canvas);
-    
+        this.setClickEvent();
+        Display.arrangeDisplay();
     }
 
     // resize erases canvas, will have to call redraw after
@@ -49,21 +50,20 @@ class GameView {
                 this.game = new Game();
                 this.draw();
             }
-            // console.log(e);
         });
     }
 
     setKeyEvent(){
-        document.addEventListener('keydown', this.game.checkHitBoxes);
-        document.addEventListener('keyup', this.game.checkHitBoxes);
+        this.keyListener = this.game.checkKeyEvent.bind(this.game);
+        document.addEventListener('keydown', this.keyListener);
+        document.addEventListener('keyup', this.keyListener);
     }
 
     removeKeyEvent(){
-        document.removeEventListener('keydown', this.game.checkHitBoxes);
-        document.removeEventListener('keyup', this.game.checkHitBoxes);
+        document.removeEventListener('keydown', this.keyListener);
+        document.removeEventListener('keyup', this.keyListener);
     }
 
-    // remember to break out of gameloop on restart or main menu
     gameLoop(){
         this.updateStep();
         this.draw();
@@ -86,7 +86,6 @@ class GameView {
             note.draw(this.ctx);
         })
     }
-
 
 }
 

@@ -1,7 +1,8 @@
 class Player {
-    constructor(){
-        let player = document.getElementById("user-player");
-        player.className = "user-player run";
+    constructor(canvas){
+        this.canvas = canvas;
+        this.player = document.getElementById("user-player");
+        this.player.className = "user-player run";
     }
 }
 

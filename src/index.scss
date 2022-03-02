@@ -3,13 +3,30 @@
     display: none;
 }
 
-body {
-    background-color: violet;
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('../assets/fonts/PressStart2P-Regular.ttf');
 }
 
-#game-canvas {
-    // background-color: orange;
-    // position: absolute;
+body {
+    background-color: violet;
+    font-family: 'Press Start 2P';
+    color: whitesmoke;
+}
+
+
+
+nav.professional-links {
+    position: absolute;
+    z-index: 100;
+}
+
+#instructions-text,
+#play-button {
+    position: absolute;
+    z-index: 98;
+    font-family: 'Press Start 2P', cursive;
+    
 }
 
 .instructions .key-sprite {
@@ -42,11 +59,7 @@ body {
 }
 
 #game-canvas {
-    background: url("../assets/background/Layer_0002_7.png"), 
-    url("../assets/background/Layer_0001_8.png"),
-    url("../assets/background/Layer_0003_6.png"),
-    url("../assets/background/Layer_0004_Lights.png"),
-    url("../assets/background/Layer_0005_5.png"),
+    background:
     url("../assets/background/Layer_0006_4.png"),
     url("../assets/background/Layer_0007_Lights.png"),
     url("../assets/background/Layer_0008_3.png"),
@@ -122,3 +135,43 @@ body {
 @keyframes player-running-animation {
     100% { background-position: -1600px; }
 }
+
+.volume-slider {
+    z-index: 98;
+    position: absolute;
+    right: 50px;
+    -webkit-appearance: none;
+    width: 50%;
+    height: 15px;
+    background: #000;
+    outline: none;
+    border: 5px solid lawngreen;
+    border-radius: 8px;
+  }
+  
+  
+  /* for chrome/safari */
+  .volume-slider::-webkit-slider-thumb {
+    z-index: 101;
+
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 60px;
+    background: #000;
+    cursor: pointer;
+    border: 5px solid lawngreen;
+    border-radius: 4px;
+  }
+  
+  /* for firefox */
+  .volume-slider::-moz-range-thumb {
+    z-index: 101;
+
+    width: 20px;
+    height: 60px;
+    background: #000;
+    cursor: pointer;
+    border: 5px solid lawngreen;
+    border-radius: 4px;
+  }

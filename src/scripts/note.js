@@ -1,5 +1,5 @@
 
-const NOTE_SCALE_RATIO = 2;
+const NOTE_SCALE_RATIO = 3;
 const NOTE_DISTANCE_PER_COUNT = 800;
 const NOTE_DISTANCE_PER_STEP = NOTE_DISTANCE_PER_COUNT / 8;
 const NOTE_SPEED = 2;
@@ -12,8 +12,11 @@ class Note {
         this.count = args['count'];
         this.step = args['step'];
         this.slide = args['slide'];
+        this.dead = false;
+        this.hurtPlayer = false;
         this.image = new Image();
-        this.vel = NOTE_SPEED;
+        this.velX = NOTE_SPEED;
+        this.velY = 0;
         this.x = NOTE_SPAWN_DISTANCE + (NOTE_DISTANCE_PER_COUNT * this.count) + (this.step * NOTE_DISTANCE_PER_STEP);
         if ( this.zone === "top"){
             this.y = 200;
@@ -33,7 +36,17 @@ class Note {
 }
 
 Note.prototype.move = function(){
-    this.x -= this.vel;
+    this.x -= this.velX;
+    if(this.dead){
+        this.y -= this.velY;
+
+        // change this later, find better way to delete
+        if(this.y < 2000){
+            this.velY--;
+        } else {
+            this.velY = 0;
+        }
+    }
 }
 
 Note.prototype.draw = function(ctx){
