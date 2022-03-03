@@ -1,7 +1,7 @@
 # MuseSlash
 MuseSlash is a fast paced music rhythm game where you hit notes that appear on the screen to score points. Notes will appear on the right side of the screen and slide towards the left. Missing too many notes will cause you to lose the game.
 
-**Live Link:** [Muse SLash Demo](https://pdlai.github.io/muse-slash/)
+**Live Link:** [Muse Slash Demo](https://pdlai.github.io/muse-slash/)
 
 ## Features and MVPs
 - Will have a clickable view to start game, adjust the volume, view instructions
