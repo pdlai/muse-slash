@@ -176,10 +176,10 @@ class Game {
     drawScore(ctx){
         ctx.fillStyle = "whitesmoke";
         ctx.font = "28px Press Start twoP";
-        ctx.fillText("Life: ", 10, 50);
-        ctx.fillText("Score: ", 10, 100);
-        ctx.fillText(this.lives, 200, 100);
+        ctx.fillText("Score: ", 10, 50);
+        ctx.fillText("Life: ", 10, 100);
         ctx.fillText(this.score, 200, 50);
+        ctx.fillText(this.lives, 200, 100);
     }
 }
 
