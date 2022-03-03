@@ -4,21 +4,21 @@ const Menu = {
         if( e.target === document.getElementById("play-button") ){
             this.hideMainMenu();
             this.showPauseButton();
-            this.startPlayer();
+            // this.startPlayer();
             this.startBackground();
             return "play-level";
         }
         if ( e.target === document.getElementById("pause-button") ){
             this.showPauseMenu();
             this.stopBackground();
-            this.stopPlayer();
+            // this.stopPlayer();
             return "pause";
         }
         if ( e.target === document.getElementById("resume-button") ){
             // something to pause the game here
             this.hidePauseMenu();
             this.startBackground();
-            this.startPlayer();
+            // this.startPlayer();
             return "resume";
         }
         if ( e.target === document.getElementById("main-menu-button") ){
@@ -26,7 +26,7 @@ const Menu = {
             this.hidePauseMenu();
             this.hidePauseButton();
             this.showMainMenu();
-            this.hidePlayer();
+            // this.hidePlayer();
             return "main-menu";
         }
     },
@@ -41,20 +41,22 @@ const Menu = {
         background.className = "game-canvas stopped";
     },
 
-    startPlayer: function(){
-        const game = document.getElementById("user-player");
-        game.className = "user-player run";
-    },
+    // this will be to change player state instead
 
-    stopPlayer: function(){
-        const game = document.getElementById("user-player");
-        game.className = "user-player stopped";
-    },
+    // startPlayer: function(){
+    //     const game = document.getElementById("user-player");
+    //     game.className = "user-player run";
+    // },
 
-    hidePlayer: function(){
-        const game = document.getElementById("user-player");
-        game.className = "user-player hidden";
-    },
+    // stopPlayer: function(){
+    //     const game = document.getElementById("user-player");
+    //     game.className = "user-player stopped";
+    // },
+
+    // hidePlayer: function(){
+    //     const game = document.getElementById("user-player");
+    //     game.className = "user-player hidden";
+    // },
 
     showMainMenu: function(){
         const mainMenu = document.getElementById("main-menu");

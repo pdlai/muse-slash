@@ -4,18 +4,22 @@ const BACKGROUND_SPEED_TWO = 4;
 const BACKGROUND_SPEED_THREE = 3;
 const BACKGROUND_SPEED_FOUR = 2
 const BACKGROUND_SCALE_RATIO = 1;
+const CROSSHAIR_OFFSET = 10;
 
 // delete later
-const PERFECT_MARGIN = 0.011;
-const GREAT_MARGIN = 0.028;
+const PERFECT_MARGIN = 0.012;
+const GREAT_MARGIN = 0.038;
+const HITBOX_PLACEMENT = 5;
 
 class Background {
     constructor(ctx, canvas){
         this.ctx = ctx;
         this.canvas = canvas;
         this.layers = [];
+        this.targets = [];
         this.loadLayers();
 
+        // use first later for now, change later
         this.canvas.height = this.layers[0].height * BACKGROUND_SCALE_RATIO;
         this.canvas.width = this.layers[0].width * BACKGROUND_SCALE_RATIO * 1.5;
         this.width = this.layers[0].width * BACKGROUND_SCALE_RATIO;
@@ -50,6 +54,18 @@ class Background {
     }
 
     loadLayers(){
+        let topCircle = new Image();
+        topCircle.src = "./assets/buttons/top_circle.png";
+        this.targets.push(topCircle);
+
+        let botCircle = new Image();
+        botCircle.src = "./assets/buttons/bot_circle.png";
+        this.targets.push(botCircle);
+
+        let crosshair = new Image();
+        crosshair.src = "./assets/buttons/crosshair121.png";
+        this.targets.push(crosshair);
+
         let layer0 = new Image();
         layer0.src = "./assets/background/Layer_0000_9.png";
         this.layers.push(layer0);
@@ -142,14 +158,34 @@ Background.prototype.draw = function(ctx){
 
     // draw hitbox ranges for testing
     let canvas = this.canvas.getBoundingClientRect();
+    
     ctx.beginPath();
     ctx.strokeStyle = 'blue';
-    ctx.rect((canvas.width / 5) - (canvas.width*GREAT_MARGIN), 0, 2*canvas.width*GREAT_MARGIN, canvas.height);
+    ctx.rect((canvas.width / HITBOX_PLACEMENT) - (canvas.width*GREAT_MARGIN), 0, 2*canvas.width*GREAT_MARGIN, canvas.height);
     ctx.stroke();
     ctx.beginPath();
     ctx.strokeStyle = 'red';
-    ctx.rect((canvas.width / 5) - (canvas.width*PERFECT_MARGIN), 0, 2*canvas.width*PERFECT_MARGIN, canvas.height);
+    ctx.rect((canvas.width / HITBOX_PLACEMENT) - (canvas.width*PERFECT_MARGIN), 0, 2*canvas.width*PERFECT_MARGIN, canvas.height);
     ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = 'red';
+    ctx.rect((canvas.width / 2) - 1, 0, 2, canvas.height);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = 'red';
+    ctx.rect(0, (canvas.height/2)-1, canvas.width, 2);
+    ctx.stroke();
+
+    ctx.drawImage(this.targets[0], (canvas.width / 5) - CROSSHAIR_OFFSET, 457, 2*CROSSHAIR_OFFSET, 2*CROSSHAIR_OFFSET);
+    ctx.drawImage(this.targets[1], (canvas.width / 5) - CROSSHAIR_OFFSET, 651, 2*CROSSHAIR_OFFSET, 2*CROSSHAIR_OFFSET);
+    
+    ctx.filter = "brightness(70%)";
+    ctx.drawImage(this.targets[2], (canvas.width / 5) - (canvas.width*PERFECT_MARGIN)-CROSSHAIR_OFFSET, 450-CROSSHAIR_OFFSET, 2*canvas.width*PERFECT_MARGIN + (2*CROSSHAIR_OFFSET), 2*canvas.width*PERFECT_MARGIN + (2*CROSSHAIR_OFFSET));
+    ctx.drawImage(this.targets[2], (canvas.width / 5) - (canvas.width*PERFECT_MARGIN)-CROSSHAIR_OFFSET, 644-CROSSHAIR_OFFSET, 2*canvas.width*PERFECT_MARGIN + (2*CROSSHAIR_OFFSET), 2*canvas.width*PERFECT_MARGIN + (2*CROSSHAIR_OFFSET));
+    ctx.filter = "brightness(100%)";
+
 }
 
 export default Background;

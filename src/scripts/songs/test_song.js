@@ -1,8 +1,6 @@
 const beatMap = {
     bpm: 170,
     layout: [
-        { count: 1, step: 0, zone: "top", slide: 1.5},
-        { count: 1, step: 0, zone: "bot"},
         { count: 1, step: 1, zone: "top"},
         { count: 1, step: 1, zone: "bot"},
         { count: 1, step: 2, zone: "top"},

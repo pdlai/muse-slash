@@ -14,26 +14,47 @@ body {
     color: whitesmoke;
 }
 
-
-
 nav.professional-links {
     position: absolute;
     z-index: 100;
 }
 
+canvas#game-canvas {
+    margin: auto;
+    display: block;
+}
+
 #instructions-text,
-#play-button {
+#play-button,
+.key-sprite {
     position: absolute;
     z-index: 98;
     font-family: 'Press Start 2P', cursive;
     
 }
 
+#play-button {
+    cursor: pointer;
+    font-size: 32px;
+    letter-spacing: 6px;
+    text-shadow: -2px 0 0 #fdff2a,
+    -4px 0 0 #df4a42,
+    2px 0 0 #91fcfe,
+    4px 0 0 #4405fc;
+    animation: blink-play 1.5s steps(4, start) infinite;
+}
+
+@keyframes blink-play {
+    to {
+        visibility: hidden;
+    }
+}
+
 .instructions .key-sprite {
     width: 19px;
     height: 21px;
     animation: instruction-animation .8s steps(3) infinite;
-    zoom: 150%;
+    zoom: 200%;
 }
 
 .instructions #d-key{
@@ -139,39 +160,39 @@ nav.professional-links {
 .volume-slider {
     z-index: 98;
     position: absolute;
-    right: 50px;
+    left: 900px;
     -webkit-appearance: none;
-    width: 50%;
-    height: 15px;
+    width: 20%;
+    height: 10px;
     background: #000;
     outline: none;
-    border: 5px solid lawngreen;
+    border: 2px solid darkolivegreen;
     border-radius: 8px;
   }
   
   
   /* for chrome/safari */
   .volume-slider::-webkit-slider-thumb {
-    z-index: 101;
+    z-index: 98;
 
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 60px;
+    width: 15px;
+    height: 40px;
     background: #000;
     cursor: pointer;
-    border: 5px solid lawngreen;
+    border: 2px solid darkolivegreen;
     border-radius: 4px;
   }
   
   /* for firefox */
   .volume-slider::-moz-range-thumb {
-    z-index: 101;
+    z-index: 98;
 
     width: 20px;
     height: 60px;
     background: #000;
     cursor: pointer;
-    border: 5px solid lawngreen;
+    border: 2px solid darkolivegreen;
     border-radius: 4px;
   }

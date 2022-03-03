@@ -36,19 +36,22 @@ class GameView {
                 this.game.play("test_song");
                 this.setKeyEvent();
                 this.gameLoop();
+                this.game.music.play();
             }
             if (action === "pause"){
                 this.removeKeyEvent();
                 this.stopGameLoop();
+                this.game.music.pause();
             }
             if (action === "resume"){
                 this.setKeyEvent();
                 this.gameLoop();
+                this.game.music.play();
             }
             if (action === "main-menu"){
                 this.removeKeyEvent();
                 this.game = new Game();
-                this.draw();
+                this.drawNewGame();
             }
         });
     }
@@ -77,6 +80,7 @@ class GameView {
     updateStep(){
         this.background.move();
         this.game.moveNotes();
+        this.game.movePlayer();
     }
 
     draw(){
@@ -85,6 +89,12 @@ class GameView {
         this.game.songMap.forEach( note => {
             note.draw(this.ctx);
         })
+        this.game.player.draw(this.ctx);
+    }
+
+    drawNewGame(){
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.background.draw(this.ctx);
     }
 
 }
