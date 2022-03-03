@@ -161,24 +161,24 @@ Background.prototype.draw = function(ctx){
     // draw hitbox ranges for testing
     let canvas = this.canvas.getBoundingClientRect();
     
-    ctx.beginPath();
-    ctx.strokeStyle = 'blue';
-    ctx.rect((canvas.width / HITBOX_PLACEMENT) - (canvas.width*GREAT_TEST), 0, 2*canvas.width*GREAT_TEST, canvas.height);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.strokeStyle = 'red';
-    ctx.rect((canvas.width / HITBOX_PLACEMENT) - (canvas.width*PERFECT_TEST), 0, 2*canvas.width*PERFECT_TEST, canvas.height);
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.strokeStyle = 'blue';
+    // ctx.rect((canvas.width / HITBOX_PLACEMENT) - (canvas.width*GREAT_TEST), 0, 2*canvas.width*GREAT_TEST, canvas.height);
+    // ctx.stroke();
+    // ctx.beginPath();
+    // ctx.strokeStyle = 'red';
+    // ctx.rect((canvas.width / HITBOX_PLACEMENT) - (canvas.width*PERFECT_TEST), 0, 2*canvas.width*PERFECT_TEST, canvas.height);
+    // ctx.stroke();
 
-    ctx.beginPath();
-    ctx.strokeStyle = 'red';
-    ctx.rect((canvas.width / 2) - 1, 0, 2, canvas.height);
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.strokeStyle = 'red';
+    // ctx.rect((canvas.width / 2) - 1, 0, 2, canvas.height);
+    // ctx.stroke();
 
-    ctx.beginPath();
-    ctx.strokeStyle = 'red';
-    ctx.rect(0, (canvas.height/2)-1, canvas.width, 2);
-    ctx.stroke();
+    // ctx.beginPath();
+    // ctx.strokeStyle = 'red';
+    // ctx.rect(0, (canvas.height/2)-1, canvas.width, 2);
+    // ctx.stroke();
 
     ctx.drawImage(this.targets[0], (canvas.width / 5) - CROSSHAIR_OFFSET, 457, 2*CROSSHAIR_OFFSET, 2*CROSSHAIR_OFFSET);
     ctx.drawImage(this.targets[1], (canvas.width / 5) - CROSSHAIR_OFFSET, 651, 2*CROSSHAIR_OFFSET, 2*CROSSHAIR_OFFSET);
