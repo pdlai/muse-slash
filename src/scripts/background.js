@@ -7,8 +7,10 @@ const BACKGROUND_SCALE_RATIO = 1;
 const CROSSHAIR_OFFSET = 10;
 
 // delete later
+const PERFECT_TEST = 0.024;
+const GREAT_TEST = 0.052;
 const PERFECT_MARGIN = 0.012;
-const GREAT_MARGIN = 0.038;
+const GREAT_MARGIN = 0.034;
 const HITBOX_PLACEMENT = 5;
 
 class Background {
@@ -161,11 +163,11 @@ Background.prototype.draw = function(ctx){
     
     ctx.beginPath();
     ctx.strokeStyle = 'blue';
-    ctx.rect((canvas.width / HITBOX_PLACEMENT) - (canvas.width*GREAT_MARGIN), 0, 2*canvas.width*GREAT_MARGIN, canvas.height);
+    ctx.rect((canvas.width / HITBOX_PLACEMENT) - (canvas.width*GREAT_TEST), 0, 2*canvas.width*GREAT_TEST, canvas.height);
     ctx.stroke();
     ctx.beginPath();
     ctx.strokeStyle = 'red';
-    ctx.rect((canvas.width / HITBOX_PLACEMENT) - (canvas.width*PERFECT_MARGIN), 0, 2*canvas.width*PERFECT_MARGIN, canvas.height);
+    ctx.rect((canvas.width / HITBOX_PLACEMENT) - (canvas.width*PERFECT_TEST), 0, 2*canvas.width*PERFECT_TEST, canvas.height);
     ctx.stroke();
 
     ctx.beginPath();

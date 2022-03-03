@@ -1,11 +1,12 @@
 
 const NOTE_SCALE_RATIO = 6;
-const NOTE_DISTANCE_PER_COUNT = 1000;
+const NOTE_DISTANCE_PER_COUNT = 2000;
 const NOTE_DISTANCE_PER_STEP = NOTE_DISTANCE_PER_COUNT / 8;
-const NOTE_SPEED = 3.5;
+const NOTE_SPEED = (17.788/2)*(2/3);
+// delay for the song
+const NOTE_SPAWN_DISTANCE = -385;
+
 const LOOP_DELAY = 15;
-// ideally replace distance with canvas width
-const NOTE_SPAWN_DISTANCE = -150;
 
 class Note {
     constructor(args){
@@ -55,7 +56,7 @@ Note.prototype.move = function(){
 
 Note.prototype.draw = function(ctx){
     // replace with canvas ratio values later
-    if(this.x > 1100) return;
+    if(this.x > 2200) return;
     ctx.drawImage(this.image, this.frame*this.frameWidth, 0, this.width, this.height,
                   this.x, this.y, this.width*NOTE_SCALE_RATIO, this.height*NOTE_SCALE_RATIO);
     this.loopIndex++;

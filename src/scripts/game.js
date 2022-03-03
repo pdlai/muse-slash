@@ -3,8 +3,8 @@ import Player from "./player";
 import Song from "./song";
 import Note from "./note";
 
-const PERFECT_MARGIN = 0.012;
-const GREAT_MARGIN = 0.038;
+const PERFECT_MARGIN = 0.024;
+const GREAT_MARGIN = 0.052;
 const HITBOX_PLACEMENT = 5;
 
 class Game {
@@ -24,7 +24,7 @@ class Game {
         this.hitSound = new Audio("./assets/sounds/slap.wav");
         this.hitSound.volume = 1;
         this.music = new Audio("./assets/sounds/brain_power_song.mp3");
-        this.music.volume = 0.5;
+        this.music.volume = 0.4;
     }
 
     play(song_name){
@@ -138,7 +138,11 @@ class Game {
                         note.dead = true;
                         this.hitSound.currentTime = 0;
                         this.hitSound.play();
-                        note.velY = 10;
+                        if(note.zone === "top"){
+                            note.velY = 15;
+                        } else {
+                            note.velY = 10;
+                        }
                         this.score += 1000;
                         return;
                 }
@@ -147,7 +151,11 @@ class Game {
                         note.dead = true;
                         this.hitSound.currentTime = 0;
                         this.hitSound.play();
-                        note.velY = 10;
+                        if(note.zone === "top"){
+                            note.velY = 15;
+                        } else {
+                            note.velY = 10;
+                        }
                         this.score += 10;
                         return;
                 }
