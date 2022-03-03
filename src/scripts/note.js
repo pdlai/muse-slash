@@ -2,6 +2,7 @@
 const NOTE_SCALE_RATIO = 6;
 const NOTE_DISTANCE_PER_COUNT = 2000;
 const NOTE_DISTANCE_PER_STEP = NOTE_DISTANCE_PER_COUNT / 8;
+// calculating crochet divided by distance per count
 const NOTE_SPEED = (17.7884615384615/2)*(2/3);
 // delay for the song
 const NOTE_SPAWN_DISTANCE = -385;
@@ -56,7 +57,7 @@ Note.prototype.move = function(){
 
 Note.prototype.draw = function(ctx){
     // replace with canvas ratio values later
-    if(this.x > 2200) return;
+    if(this.x > 2200 || this.x < -this.scaledWidth) return;
     ctx.drawImage(this.image, this.frame*this.frameWidth, 0, this.width, this.height,
                   this.x, this.y, this.width*NOTE_SCALE_RATIO, this.height*NOTE_SCALE_RATIO);
     this.loopIndex++;

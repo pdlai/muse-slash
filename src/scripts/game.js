@@ -21,10 +21,11 @@ class Game {
         this.firedK = false;
         this.player = new Player(this.canvas);
 
-        this.hitSound = new Audio("./assets/sounds/slap.wav");
-        this.hitSound.volume = 1;
+        this.hitSound = new Audio("./assets/sounds/slap1.wav");
+        this.hitSound.volume = 0.4;
         this.music = new Audio("./assets/sounds/brain_power_song.mp3");
         this.music.volume = 0.4;
+        this.setVolumeEvent();
     }
 
     play(song_name){
@@ -49,14 +50,14 @@ class Game {
 
     moveNotes(){
         this.songMap.forEach( note => {
-            note.move();
-            if (note.x + note.width/2 < (this.canvas.width / HITBOX_PLACEMENT) - (this.canvas.width * GREAT_MARGIN)){
+            if (note.x + note.scaledWidth/2 < (this.canvas.width / HITBOX_PLACEMENT) - (this.canvas.width * GREAT_MARGIN)){
                 if(!note.hurtPlayer && !note.dead){
                     this.lives--;
                     this.player.changeState("damaged");
                     note.hurtPlayer = true;
                 }
             }
+            note.move();
         })
         
         // update the lives thing somehow later
@@ -162,6 +163,15 @@ class Game {
             }
         }
     }
+    
+    setVolumeEvent(){
+        let volume = document.getElementById("volume-slider");
+        volume.addEventListener("change", (e) => {
+            this.hitSound.volume = e.currentTarget.value / 100;
+            this.music.volume = e.currentTarget.value / 100;
+        })
+    }
+
 
     drawScore(ctx){
         ctx.fillStyle = "whitesmoke";

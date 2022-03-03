@@ -1,7 +1,7 @@
 const PLAYER_SCALE_RATIO = 2.4;
 const RUN_DELAY = 8;
 const ATTACK_DELAY = 1;
-const FREEZE_DELAY = 10;
+const FREEZE_DELAY = 17;
 const JUMP_DELAY = 1;
 
 class Player {
@@ -102,7 +102,7 @@ class Player {
         }
         if(this.inAir){
             this.inAirTimer++;
-            if(this.inAirTimer > 40){
+            if(this.inAirTimer > 50){
                 this.velY = 50;
                 this.inAir = false;
             }
