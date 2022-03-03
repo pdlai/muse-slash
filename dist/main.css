@@ -6,12 +6,12 @@
 }
 
 @font-face {
-  font-family: "Press Start 2P";
+  font-family: Press Start twoP;
   src: url("../assets/fonts/PressStart2P-Regular.ttf");
 }
 body {
   background-color: violet;
-  font-family: "Press Start 2P";
+  font-family: Press Start twoP;
   color: whitesmoke;
 }
 
@@ -30,7 +30,7 @@ canvas#game-canvas {
 .key-sprite {
   position: absolute;
   z-index: 98;
-  font-family: "Press Start 2P", cursive;
+  font-family: "Press Start twoP", cursive;
 }
 
 #play-button {
@@ -88,49 +88,6 @@ canvas#game-canvas {
 @keyframes background-loop {
   100% {
     background-position: 928px 0px;
-  }
-}
-.user-player {
-  transform: scale(2);
-  width: 200px;
-  height: 200px;
-  zoom: 120%;
-  position: absolute;
-  top: 300px;
-}
-
-.user-player.stopped {
-  background-image: url("../assets/character/Idle.png");
-}
-
-.user-player.run {
-  background: url("../assets/character/Run.png");
-  animation: player-running-animation 0.4s steps(8) infinite;
-}
-
-.user-player.attack1 {
-  background: url("../assets/character/Run.png");
-  animation: player-running-animation 0.4s steps(8) infinite;
-}
-
-.user-player.attack2 {
-  background: url("../assets/character/Run.png");
-  animation: player-running-animation 0.4s steps(8) infinite;
-}
-
-.user-player.jump {
-  background: url("../assets/character/Run.png");
-  animation: player-running-animation 0.4s steps(8) infinite;
-}
-
-.user-player.fall {
-  background: url("../assets/character/Run.png");
-  animation: player-running-animation 0.4s steps(8) infinite;
-}
-
-@keyframes player-running-animation {
-  100% {
-    background-position: -1600px;
   }
 }
 .volume-slider {

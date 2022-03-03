@@ -4,13 +4,13 @@
 }
 
 @font-face {
-    font-family: 'Press Start 2P';
+    font-family: Press Start twoP;
     src: url('../assets/fonts/PressStart2P-Regular.ttf');
 }
 
 body {
     background-color: violet;
-    font-family: 'Press Start 2P';
+    font-family: Press Start twoP;
     color: whitesmoke;
 }
 
@@ -29,7 +29,7 @@ canvas#game-canvas {
 .key-sprite {
     position: absolute;
     z-index: 98;
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Press Start twoP', cursive;
     
 }
 
@@ -102,61 +102,6 @@ canvas#game-canvas {
     }
 }
 
-.user-player {
-    transform: scale(2);
-    width: 200px;
-    height: 200px;
-    zoom: 120%;
-    position: absolute;
-    // top: 550px;
-    top: 300px;
-}
-
-.user-player.stopped {
-    background-image: url("../assets/character/Idle.png");
-    // height: 200px;
-    // width: 200px;
-}
-
-.user-player.run {
-    background: url("../assets/character/Run.png");
-    animation: player-running-animation .4s steps(8) infinite;
-}
-
-
-// change all these they are copies of run
-.user-player.attack1 {
-    background: url("../assets/character/Run.png");
-    animation: player-running-animation .4s steps(8) infinite;
-    // position: absolute;
-    // top: 180px;
-}
-
-.user-player.attack2 {
-    background: url("../assets/character/Run.png");
-    animation: player-running-animation .4s steps(8) infinite;
-    // position: absolute;
-    // top: 180px;
-}
-
-.user-player.jump {
-    background: url("../assets/character/Run.png");
-    animation: player-running-animation .4s steps(8) infinite;
-    // position: absolute;
-    // top: 180px;
-}
-
-.user-player.fall {
-    background: url("../assets/character/Run.png");
-    animation: player-running-animation .4s steps(8) infinite;
-    // position: absolute;
-    // top: 180px;
-}
-
-@keyframes player-running-animation {
-    100% { background-position: -1600px; }
-}
-
 .volume-slider {
     z-index: 98;
     position: absolute;
@@ -169,7 +114,6 @@ canvas#game-canvas {
     border: 2px solid darkolivegreen;
     border-radius: 8px;
   }
-  
   
   /* for chrome/safari */
   .volume-slider::-webkit-slider-thumb {

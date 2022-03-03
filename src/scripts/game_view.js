@@ -90,6 +90,7 @@ class GameView {
             note.draw(this.ctx);
         })
         this.game.player.draw(this.ctx);
+        this.game.drawScore(this.ctx);
     }
 
     drawNewGame(){

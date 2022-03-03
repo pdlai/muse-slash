@@ -139,11 +139,11 @@ class Game {
                         this.hitSound.currentTime = 0;
                         this.hitSound.play();
                         if(note.zone === "top"){
-                            note.velY = 15;
+                            note.velY = 20;
                         } else {
-                            note.velY = 10;
+                            note.velY = 15;
                         }
-                        this.score += 1000;
+                        this.score += 100;
                         return;
                 }
                 if( note.x + note.scaledWidth/2 >= (this.canvas.width / HITBOX_PLACEMENT) - (this.canvas.width * GREAT_MARGIN) &&
@@ -152,15 +152,24 @@ class Game {
                         this.hitSound.currentTime = 0;
                         this.hitSound.play();
                         if(note.zone === "top"){
-                            note.velY = 15;
+                            note.velY = 20;
                         } else {
-                            note.velY = 10;
+                            note.velY = 15;
                         }
-                        this.score += 10;
+                        this.score += 50;
                         return;
                 }
             }
         }
+    }
+
+    drawScore(ctx){
+        ctx.fillStyle = "whitesmoke";
+        ctx.font = "28px Press Start twoP";
+        ctx.fillText("Life: ", 10, 50);
+        ctx.fillText("Score: ", 10, 100);
+        ctx.fillText(this.lives, 200, 100);
+        ctx.fillText(this.score, 200, 50);
     }
 }
 

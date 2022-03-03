@@ -22,16 +22,10 @@ const Display = {
         let posY = Math.floor(this.canvasRect.top + ( (this.canvas.height - playButton.getBoundingClientRect().height) / 2)).toString().concat("px");
         playButton.style.left = posX;
         playButton.style.top = posY;
-        // console.log(posX)
-        // console.log(this.canvasRect.left)
-        // console.log(this.canvasRect.width)
-        // console.log(playButton.getBoundingClientRect())
-        // console.log(this.canvasRect.right)
 
         let instructions = document.getElementById("instructions-text");
         posX = Math.floor(this.canvasRect.left + ( (this.canvas.width - instructions.getBoundingClientRect().width) / 8)).toString().concat("px");
         posY = Math.floor(this.canvasRect.top + ( (this.canvas.height - instructions.getBoundingClientRect().height) / 2.5)).toString().concat("px");
-        console.log(posX);
 
         instructions.style.left = posX;
         instructions.style.top = posY;
@@ -41,13 +35,13 @@ const Display = {
         let tempX = (this.canvasRect.left + ( (this.canvas.width - keyD.getBoundingClientRect().width) / 20) );
         let tempY = (this.canvasRect.top + ( (this.canvas.height - keyD.getBoundingClientRect().height) / 5.2) );
         
-        console.log(posX);
-        console.log(this.canvasRect.left)
-        console.log(this.canvasRect.width)
-        console.log(playButton.getBoundingClientRect().width)
+        // console.log(posX);
+        // console.log(this.canvasRect.left)
+        // console.log(this.canvasRect.width)
+        // console.log(playButton.getBoundingClientRect().width)
+        // console.log(posX);
 
-        console.log(posX);
-        keyD.style.left = posX;
+        keyD.style.left = Math.floor(tempX-20).toString().concat("px");
         keyD.style.top = Math.floor(tempY).toString().concat("px");
 
         let keyF = document.getElementById("f-key");
