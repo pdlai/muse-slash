@@ -5,6 +5,8 @@ const BACKGROUND_SPEED_THREE = 3;
 const BACKGROUND_SPEED_FOUR = 2
 const BACKGROUND_SCALE_RATIO = 1;
 const CROSSHAIR_OFFSET = 10;
+const BACKGROUND_WIDTH = 928;
+const BACKGROUND_HEIGHT = 793;
 
 // delete later
 const PERFECT_TEST = 0.024;
@@ -19,15 +21,13 @@ class Background {
         this.canvas = canvas;
         this.layers = [];
         this.targets = [];
+
         this.loadLayers();
 
-        // use first later for now, change later
-        this.canvas.height = this.layers[0].height * BACKGROUND_SCALE_RATIO;
-        this.canvas.width = this.layers[0].width * BACKGROUND_SCALE_RATIO * 1.5;
-        this.width = this.layers[0].width * BACKGROUND_SCALE_RATIO;
-        this.height = this.layers[0].height * BACKGROUND_SCALE_RATIO;
-        
+        this.width = BACKGROUND_WIDTH * BACKGROUND_SCALE_RATIO;
+        this.height = BACKGROUND_HEIGHT * BACKGROUND_SCALE_RATIO;
         this.setupBoundaries();
+
     }
 
     setupBoundaries(){
@@ -90,8 +90,8 @@ class Background {
 
         // there has to be a better way to wait for all images to load before drawing 
         let layer5 = new Image();
+        this.layers.push(layer5);
         layer5.onload = () => {
-            this.layers.push(layer5);
             this.draw(this.ctx);
         }
         layer5.src = "./assets/background/Layer_0005_5.png";

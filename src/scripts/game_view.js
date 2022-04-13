@@ -13,8 +13,9 @@ class GameView {
     }
 
     // 928x793
+    // 1392x793 1.5x width
     setup(){
-        this.setWindowResize();
+        // this.setWindowResize();
         this.background = new Background(this.ctx, this.canvas);
         this.setClickEvent();
         Display.arrangeDisplay();

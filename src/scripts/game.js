@@ -22,9 +22,9 @@ class Game {
         this.player = new Player(this.canvas);
 
         this.hitSound = new Audio("./assets/sounds/slap1.wav");
-        this.hitSound.volume = 0.4;
+        this.hitSound.volume = 0.35;
         this.music = new Audio("./assets/sounds/brain_power_song.mp3");
-        this.music.volume = 0.4;
+        this.music.volume = 0.35;
         this.setVolumeEvent();
     }
 
