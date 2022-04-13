@@ -7,7 +7,6 @@ const Display = {
     },
 
     arrangeMainMenu: function(){
-        // console.log(canvas.top, canvas.right, canvas.bottom, canvas.left);
 
         let playButton = document.getElementById("play-button");
         let posX = Math.floor(this.canvasRect.left + ( (this.canvas.width - playButton.getBoundingClientRect().width) / 2)).toString().concat("px");
@@ -41,8 +40,7 @@ const Display = {
         let keyK = document.getElementById("k-key");
         keyK.style.left = Math.floor(tempX+15).toString().concat("px");
         keyK.style.top = Math.floor(tempY+110).toString().concat("px");
-
-        
+    
     }
 }
 

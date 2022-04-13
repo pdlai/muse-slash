@@ -1,7 +1,9 @@
 import Menu from "./menu";
 import Background from "./background";
 import Game from "./game";
-import Display from "./display";
+
+// throttle to 60 fps
+const FPS = 60;
 
 class GameView {
     constructor(game, ctx, canvas){
@@ -15,28 +17,17 @@ class GameView {
     // 928x793
     // 1392x793 1.5x width
     setup(){
-        // this.setWindowResize();
         this.background = new Background(this.ctx, this.canvas);
         this.setClickEvent();
-        // Display.arrangeDisplay();
-    }
-
-    // resize erases canvas, will have to call redraw after
-    setWindowResize(){
-        window.addEventListener('resize', () => {
-            // turn off for now
-            // this.canvas.width = window.innerWidth;
-            // this.canvas.height = window.innerHeight;
-        });
     }
 
     setClickEvent(){
         window.addEventListener('click', (e) =>{
             let action = Menu.eventHandler(e);
             if (action === "play-level"){
-                this.game.play("test_song");
+                this.game.play("brain_power");
                 this.setKeyEvent();
-                this.gameLoop();
+                this.startGameLoop();
                 this.game.music.play();
             }
             if (action === "pause"){
@@ -46,7 +37,7 @@ class GameView {
             }
             if (action === "resume"){
                 this.setKeyEvent();
-                this.gameLoop();
+                this.startGameLoop();
                 this.game.music.play();
             }
             if (action === "main-menu"){
@@ -55,6 +46,31 @@ class GameView {
                 this.drawNewGame();
             }
         });
+    }
+
+    startGameLoop(){
+        this.fpsInterval = 1000 / FPS;
+        this.then = Date.now();
+        this.startTime = this.then;
+        this.gameLoop();
+    }
+    
+    gameLoop(){
+        this.requestId = requestAnimationFrame(this.gameLoop.bind(this));
+
+        this.now = Date.now();
+        this.elapsed = this.now - this.then;
+
+        if (this.elapsed > this.fpsInterval){
+            this.then = this.now - (this.elapsed % this.fpsInterval);
+
+            this.updateStep();
+            this.draw();
+        }
+    }
+
+    stopGameLoop(){
+        cancelAnimationFrame(this.requestId);
     }
 
     setKeyEvent(){
@@ -66,16 +82,6 @@ class GameView {
     removeKeyEvent(){
         document.removeEventListener('keydown', this.keyListener);
         document.removeEventListener('keyup', this.keyListener);
-    }
-
-    gameLoop(){
-        this.updateStep();
-        this.draw();
-        this.requestId = requestAnimationFrame(this.gameLoop.bind(this));
-    }
-
-    stopGameLoop(){
-        cancelAnimationFrame(this.requestId);
     }
 
     updateStep(){

@@ -1,4 +1,4 @@
-const beatMap = {
+const brainPower = {
     bpm: 170,
     layout: [
         { count: 1, step: 1, zone: "bot"},
@@ -88,7 +88,6 @@ const beatMap = {
         { count: 8, step: 4, zone: "top", slide: 1},
         { count: 8, step: 4.5, zone: "bot"},
 
-        // irregular count
         { count: 8, step: 5, zone: "bot"},
         { count: 8, step: 5.75, zone: "top"},
         { count: 8, step: 6.5, zone: "bot"},
@@ -130,8 +129,6 @@ const beatMap = {
         { count: 12, step: 8, zone: "top"},
         { count: 12, step: 8, zone: "bot"},
 
-
-
         { count: 13, step: 1, zone: "bot"},
         { count: 13, step: 2, zone: "top"},
         { count: 13, step: 4.5, zone: "bot"},
@@ -170,10 +167,6 @@ const beatMap = {
         { count: 17, step: 7.5, zone: "top"},
         { count: 17, step: 7.75, zone: "top"},
         { count: 17, step: 8, zone: "top", slide: 1},
-
-
-
-
 
         { count: 18, step: 1, zone: "bot", slide: 2},
         { count: 18, step: 3, zone: "top"},
@@ -256,7 +249,6 @@ const beatMap = {
         { count: 24, step: 7, zone: "top"},
         { count: 24, step: 8, zone: "top"},
 
-        // irregular beat
         { count: 25, step: 1, zone: "bot"},
         { count: 25, step: 1.4, zone: "bot"},
         { count: 25, step: 1.8, zone: "bot"},
@@ -583,4 +575,4 @@ const beatMap = {
 // 60fps, 17.7884615384615 pixels per frame movement
 // 120 fps, divide by 2
 
-export default beatMap;
+export default brainPower;

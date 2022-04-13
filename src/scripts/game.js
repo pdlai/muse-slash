@@ -35,7 +35,6 @@ class Game {
         this.started = true;
     }
 
-    // for scalability later
     setGameParams(){
         this.canvas = document.getElementById("game-canvas");
     }
@@ -59,9 +58,6 @@ class Game {
             }
             note.move();
         })
-        
-        // update the lives thing somehow later
-        // console.log(this.lives);
     }
 
     movePlayer(){
@@ -132,8 +128,7 @@ class Game {
             if(this.songMap[i].zone === zone){
                 let note = this.songMap[i];
                 if(note.dead) continue;
-                // remove element for now
-                // alter set to death animation later
+
                 if( note.x + note.scaledWidth/2 >= (this.canvas.width / HITBOX_PLACEMENT) - (this.canvas.width * PERFECT_MARGIN) &&
                     note.x + note.scaledWidth/2 <= (this.canvas.width / HITBOX_PLACEMENT) + (this.canvas.width * PERFECT_MARGIN) ){  
                         note.dead = true;
@@ -171,7 +166,6 @@ class Game {
             this.music.volume = e.currentTarget.value / 100;
         })
     }
-
 
     drawScore(ctx){
         ctx.fillStyle = "whitesmoke";

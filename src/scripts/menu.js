@@ -4,29 +4,23 @@ const Menu = {
         if( e.target === document.getElementById("play-button") ){
             this.hideMainMenu();
             this.showPauseButton();
-            // this.startPlayer();
             this.startBackground();
             return "play-level";
         }
         if ( e.target === document.getElementById("pause-button") ){
             this.showPauseMenu();
             this.stopBackground();
-            // this.stopPlayer();
             return "pause";
         }
         if ( e.target === document.getElementById("resume-button") ){
-            // something to pause the game here
             this.hidePauseMenu();
             this.startBackground();
-            // this.startPlayer();
             return "resume";
         }
         if ( e.target === document.getElementById("main-menu-button") ){
-            // something to pause the game here
             this.hidePauseMenu();
             this.hidePauseButton();
             this.showMainMenu();
-            // this.hidePlayer();
             return "main-menu";
         }
     },
@@ -40,23 +34,6 @@ const Menu = {
         const background = document.getElementById("game-canvas");
         background.className = "game-canvas stopped";
     },
-
-    // this will be to change player state instead
-
-    // startPlayer: function(){
-    //     const game = document.getElementById("user-player");
-    //     game.className = "user-player run";
-    // },
-
-    // stopPlayer: function(){
-    //     const game = document.getElementById("user-player");
-    //     game.className = "user-player stopped";
-    // },
-
-    // hidePlayer: function(){
-    //     const game = document.getElementById("user-player");
-    //     game.className = "user-player hidden";
-    // },
 
     showMainMenu: function(){
         const mainMenu = document.getElementById("main-menu");

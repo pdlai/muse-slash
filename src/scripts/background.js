@@ -1,14 +1,13 @@
 
-const BACKGROUND_SPEED = 5;
-const BACKGROUND_SPEED_TWO = 4;
-const BACKGROUND_SPEED_THREE = 3;
-const BACKGROUND_SPEED_FOUR = 2
+const BACKGROUND_SPEED = 10;
+const BACKGROUND_SPEED_TWO = 8;
+const BACKGROUND_SPEED_THREE = 6;
+const BACKGROUND_SPEED_FOUR = 4;
 const BACKGROUND_SCALE_RATIO = 1;
 const CROSSHAIR_OFFSET = 10;
 const BACKGROUND_WIDTH = 928;
 const BACKGROUND_HEIGHT = 793;
 
-// delete later
 const PERFECT_TEST = 0.024;
 const GREAT_TEST = 0.052;
 const PERFECT_MARGIN = 0.012;
@@ -88,7 +87,6 @@ class Background {
         layer4.src = "./assets/background/Layer_0004_Lights.png";
         this.layers.push(layer4);
 
-        // there has to be a better way to wait for all images to load before drawing 
         let layer5 = new Image();
         this.layers.push(layer5);
         layer5.onload = () => {
@@ -122,7 +120,6 @@ class Background {
     }
 }
 
-// hardcore different speeds for background layers
 Background.prototype.move = function(){
     this.x[0] -= BACKGROUND_SPEED;
     this.x[1] -= BACKGROUND_SPEED_TWO;
@@ -158,8 +155,9 @@ Background.prototype.draw = function(ctx){
 
     }
 
-    // draw hitbox ranges for testing
     let canvas = this.canvas.getBoundingClientRect();
+    
+    // draw hitbox ranges for testing
     
     // ctx.beginPath();
     // ctx.strokeStyle = 'blue';

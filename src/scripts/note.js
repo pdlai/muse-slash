@@ -3,11 +3,11 @@ const NOTE_SCALE_RATIO = 6;
 const NOTE_DISTANCE_PER_COUNT = 2000;
 const NOTE_DISTANCE_PER_STEP = NOTE_DISTANCE_PER_COUNT / 8;
 // calculating crochet divided by distance per count
-const NOTE_SPEED = (17.7884615384615/2)*(2/3);
+const NOTE_SPEED = (17.7884615384615)*(2/3);
 // delay for the song
-const NOTE_SPAWN_DISTANCE = -285;
+const NOTE_SPAWN_DISTANCE = -335;
 
-const LOOP_DELAY = 15;
+const LOOP_DELAY = 8;
 
 class Note {
     constructor(args){
@@ -22,7 +22,6 @@ class Note {
         this.velY = 0;
         this.x = NOTE_SPAWN_DISTANCE + (NOTE_DISTANCE_PER_COUNT * this.count) + (this.step * NOTE_DISTANCE_PER_STEP);
         if ( this.zone === "top"){
-            // replace this.y with canvas ratio values later
             this.y = 420;
             this.image.src = './assets/enemies/ghost.png';
         } else {
@@ -30,7 +29,7 @@ class Note {
             this.image.src = './assets/enemies/frog.png';
         }
         this.frame = 0;
-        // sprite has 3 frames, 16x16 hard code
+        // sprite has 3 frames, 16x16 
         this.numFrames = 3;
         this.frameWidth = 16;
         this.width = 16;
@@ -46,8 +45,8 @@ Note.prototype.move = function(){
     if(this.dead){
         this.y -= this.velY;
 
-        // change this later, find better way to delete
         if(this.y < 2000){
+            this.velY--;
             this.velY--;
         } else {
             this.velY = 0;
@@ -56,7 +55,6 @@ Note.prototype.move = function(){
 }
 
 Note.prototype.draw = function(ctx){
-    // replace with canvas ratio values later
     if(this.x > 2200 || this.x < -this.scaledWidth) return;
     ctx.drawImage(this.image, this.frame*this.frameWidth, 0, this.width, this.height,
                   this.x, this.y, this.width*NOTE_SCALE_RATIO, this.height*NOTE_SCALE_RATIO);
