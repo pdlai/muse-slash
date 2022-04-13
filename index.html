@@ -9,42 +9,59 @@
     <link rel="stylesheet" type="text/css" href="./dist/main.css">
 </head>
 <body>
-    <h1>Muse Slash</h1>
+    <div class="body-container">
+        
+        <h1>Muse Slash</h1>
+        
+        <nav class="professional-links" id="professional-links">
+            <a href="https://github.com/pdlai"><input type="submit" value="Github"></a>
+            <a href="https://github.com/pdlai"><input type="submit" value="Github"></a>
+            <a href="https://github.com/pdlai"><input type="submit" value="Github"></a>
+        </nav>
+        
+        <div id="canvas-container">
 
-    <canvas class="game-canvas stopped" id="game-canvas" width="1392px" height="793px"></canvas>
+            <canvas class="game-canvas stopped" id="game-canvas" width="1392px" height="793px"></canvas>
+            
+            
+            <div class="main-menu" id="main-menu">
+                
+                <div id="play-button">Play</div>
 
-    <nav class="professional-links" id="professional-links">
-        <a href="https://github.com/pdlai"><input type="submit" value="Github"></a>
-        <a href="https://github.com/pdlai"><input type="submit" value="Github"></a>
-        <a href="https://github.com/pdlai"><input type="submit" value="Github"></a>
-    </nav>
+                <div class="instructions">
+                    <div id="instructions-text">Use&nbsp;these&nbsp;buttons to&nbsp;hit&nbsp;the&nbsp;notes</div>
+                    <div id="instructions-d-f">
+                        <div id="d-key" class="key-sprite"></div>
+                        <div>or</div>
+                        <div id="f-key" class="key-sprite"></div>
+                    </div>
+                    <div id="instructions-j-k">
+                        <div id="j-key" class="key-sprite"></div>
+                        <div>or</div>
+                        <div id="k-key" class="key-sprite"></div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="pause-container">
+                <div class="pause-button hidden" id="pause-button">Pause</div>
+                
+                <div class="pause-menu hidden" id="pause-menu">
+                    <div id="resume-button">Resume</div>
+                    <div id="restart-level-button">Restart&nbsp;Level</div>
+                    <div id="main-menu-button">Main&nbsp;Menu</div>
+                </div>
+            </div>
 
-    <div class="main-menu" id="main-menu">
-
-        <div id="play-button">Play</div>
-
-        <div class="instructions">
-            <div id="instructions-text">Use these buttons</div>
-            <div id="d-key" class="key-sprite"></div>
-            <div id="f-key" class="key-sprite"></div>
-            <div id="j-key" class="key-sprite"></div>
-            <div id="k-key" class="key-sprite"></div>
+            <div id="volume-container">
+                <label id="volume">Volume: 
+                    <input type="range" min="1" max="100" value="35" id="volume-slider" class="volume-slider">
+                </label>
+            </div>
+            
         </div>
 
     </div>
-
-    <div class="pause-button hidden" id="pause-button">Pause Symbol</div>
-
-    <div class="pause-menu hidden" id="pause-menu">
-        <div id="resume-button">Resume</div>
-        <div id="restart-level-button">Restart Level</div>
-        <div id="main-menu-button">Main Menu</div>
-    </div>
-
-    <label>
-        Volume: 
-        <input type="range" min="1" max="100" value="35" id="volume-slider" class="volume-slider">
-    </label>
-
 </body>
 </html>

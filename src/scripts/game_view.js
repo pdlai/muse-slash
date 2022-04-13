@@ -18,7 +18,7 @@ class GameView {
         // this.setWindowResize();
         this.background = new Background(this.ctx, this.canvas);
         this.setClickEvent();
-        Display.arrangeDisplay();
+        // Display.arrangeDisplay();
     }
 
     // resize erases canvas, will have to call redraw after
