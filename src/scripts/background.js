@@ -25,7 +25,6 @@ class Background {
 
         this.width = BACKGROUND_WIDTH * BACKGROUND_SCALE_RATIO;
         this.height = BACKGROUND_HEIGHT * BACKGROUND_SCALE_RATIO;
-        this.setupBoundaries();
 
     }
 
@@ -64,59 +63,11 @@ class Background {
         this.targets.push(botCircle);
 
         let crosshair = new Image();
-        crosshair.src = "./assets/buttons/crosshair121.png";
         this.targets.push(crosshair);
-
-        let layer0 = new Image();
-        layer0.src = "./assets/background/Layer_0000_9.png";
-        this.layers.push(layer0);
-
-        let layer1 = new Image();
-        layer1.src = "./assets/background/Layer_0001_8.png";
-        this.layers.push(layer1);
-
-        let layer2 = new Image();
-        layer2.src = "./assets/background/Layer_0002_7.png";
-        this.layers.push(layer2);
-
-        let layer3 = new Image();
-        layer3.src = "./assets/background/Layer_0003_6.png";
-        this.layers.push(layer3);
-
-        let layer4 = new Image();
-        layer4.src = "./assets/background/Layer_0004_Lights.png";
-        this.layers.push(layer4);
-
-        let layer5 = new Image();
-        this.layers.push(layer5);
-        layer5.onload = () => {
+        crosshair.onload = () => {
             this.draw(this.ctx);
         }
-        layer5.src = "./assets/background/Layer_0005_5.png";
-
-        // let layer6 = new Image();
-        // layer6.src = "./assets/background/Layer_0006_4.png";
-        // this.layers.push(layer6);
-
-        // let layer7 = new Image();
-        // layer7.src = "./assets/background/Layer_0007_Lights.png";
-        // this.layers.push(layer7);
-
-        // let layer8 = new Image();
-        // layer8.src = "./assets/background/Layer_0008_3.png";
-        // this.layers.push(layer8);
-
-        // let layer9 = new Image();    
-        // layer9.src = "./assets/background/Layer_0009_2.png";
-        // this.layers.push(layer9);
-
-        // let layer10 = new Image();
-        // layer10.src = "./assets/background/Layer_0010_1.png";
-        // this.layers.push(layer10);
-
-        // let layer11 = new Image();
-        // layer11.src = "./assets/background/Layer_0011_0.png";
-        // this.layers.push(layer11);
+        crosshair.src = "./assets/buttons/crosshair121.png";
     }
 }
 
@@ -130,30 +81,30 @@ Background.prototype.move = function(){
 }
 
 Background.prototype.draw = function(ctx){
-    for(let i = this.x.length-1; i >= 0; i--){
+    // for(let i = this.x.length-1; i >= 0; i--){
 
-        if(this.width <= this.canvas.width){
-            if(this.x[i] < 0){
-                this.x[i] = this.width + this.x[i];        
-            }
-            if(this.x[i] < this.canvas.width){
-                ctx.drawImage(this.layers[i], -this.width + this.x[i], 0, this.width, this.height);
-            }
-            if(this.x[i] < this.canvas.width + this.width){
-                ctx.drawImage(this.layers[i], this.width + this.x[i], 0, this.width, this.height);
-            }
-        } else {
-            // retest this else statement for adaptiveness
-            if(this.x[i] > (this.canvas.width)){
-                this.x[i] = this.width;
-            }
-            if(this.x[i] < this.width){
-                ctx.drawImage(this.layers[i], this.x[i] - this.width + 1, 0, this.width, this.height);
-            }
-        }
-        ctx.drawImage(this.layers[i], this.x[i], 0, this.width, this.height);
+    //     if(this.width <= this.canvas.width){
+    //         if(this.x[i] < 0){
+    //             this.x[i] = this.width + this.x[i];        
+    //         }
+    //         if(this.x[i] < this.canvas.width){
+    //             ctx.drawImage(this.layers[i], -this.width + this.x[i], 0, this.width, this.height);
+    //         }
+    //         if(this.x[i] < this.canvas.width + this.width){
+    //             ctx.drawImage(this.layers[i], this.width + this.x[i], 0, this.width, this.height);
+    //         }
+    //     } else {
+    //         // retest this else statement for adaptiveness
+    //         if(this.x[i] > (this.canvas.width)){
+    //             this.x[i] = this.width;
+    //         }
+    //         if(this.x[i] < this.width){
+    //             ctx.drawImage(this.layers[i], this.x[i] - this.width + 1, 0, this.width, this.height);
+    //         }
+    //     }
+    //     ctx.drawImage(this.layers[i], this.x[i], 0, this.width, this.height);
 
-    }
+    // }
 
     let canvas = this.canvas.getBoundingClientRect();
     

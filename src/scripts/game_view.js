@@ -85,7 +85,6 @@ class GameView {
     }
 
     updateStep(){
-        this.background.move();
         this.game.moveNotes();
         this.game.movePlayer();
     }

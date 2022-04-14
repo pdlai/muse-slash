@@ -26,13 +26,17 @@ const Menu = {
     },
 
     startBackground(){
-        const background = document.getElementById("game-canvas");
-        background.className = "game-canvas start";
+        const backgrounds = document.getElementsByClassName("game-canvas");
+        for (let i = 0; i < backgrounds.length; i++) {
+            backgrounds[i].className = "game-canvas start";
+        };
     },
 
     stopBackground(){
-        const background = document.getElementById("game-canvas");
-        background.className = "game-canvas stopped";
+        const backgrounds = document.getElementsByClassName("game-canvas");
+        for (let i = 0; i < backgrounds.length; i++) {
+            backgrounds[i].className = "game-canvas stopped";
+        };
     },
 
     showMainMenu: function(){

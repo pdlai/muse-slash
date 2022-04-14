@@ -30,8 +30,8 @@ nav.professional-links {
   margin: auto;
 }
 
-.pause-container, #main-menu,
-#game-canvas, #volume-container {
+.pause-container, #main-menu, #volume-container,
+.game-canvas {
   position: absolute;
 }
 
@@ -137,13 +137,57 @@ nav.professional-links {
     background-position: -57px;
   }
 }
-#game-canvas {
+#game-canvas-7 {
   background: url("../assets/background/Layer_0006_4.png"), url("../assets/background/Layer_0007_Lights.png"), url("../assets/background/Layer_0008_3.png"), url("../assets/background/Layer_0009_2.png"), url("../assets/background/Layer_0010_1.png"), url("../assets/background/Layer_0011_0.png");
 }
 
-.game-canvas.start {
+#game-canvas-6 {
+  background: url("../assets/background/Layer_0004_Lights.png"), url("../assets/background/Layer_0005_5.png");
+}
+
+#game-canvas-5 {
+  background: url("../assets/background/Layer_0002_7.png"), url("../assets/background/Layer_0003_6.png");
+}
+
+#game-canvas-4 {
+  background: url("../assets/background/Layer_0001_8.png");
+}
+
+#game-canvas-3 {
+  background: url("../assets/background/Layer_0000_9.png");
+}
+
+#game-canvas-7.start {
   background-repeat: repeat-x, repeat-x;
   animation: background-loop 4s infinite;
+  animation-timing-function: linear;
+  animation-direction: reverse;
+}
+
+#game-canvas-6.start {
+  background-repeat: repeat-x, repeat-x;
+  animation: background-loop 3s infinite;
+  animation-timing-function: linear;
+  animation-direction: reverse;
+}
+
+#game-canvas-5.start {
+  background-repeat: repeat-x, repeat-x;
+  animation: background-loop 2.5s infinite;
+  animation-timing-function: linear;
+  animation-direction: reverse;
+}
+
+#game-canvas-4.start {
+  background-repeat: repeat-x, repeat-x;
+  animation: background-loop 2s infinite;
+  animation-timing-function: linear;
+  animation-direction: reverse;
+}
+
+#game-canvas-3.start {
+  background-repeat: repeat-x, repeat-x;
+  animation: background-loop 1.5s infinite;
   animation-timing-function: linear;
   animation-direction: reverse;
 }
