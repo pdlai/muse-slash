@@ -8,8 +8,8 @@
     src: url('../assets/fonts/PressStart2P-Regular.ttf');
 }
 
-h1, nav {
-    margin-bottom: 10px;
+h1{
+    margin-bottom: 20px;
 }
 
 body {
@@ -19,8 +19,28 @@ body {
     user-select: none;
 }
 
+.nav-bar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
 nav.professional-links {
     z-index: 100;
+    position: absolute;
+    right: 0px;
+    bottom: 15px;
+    a {
+        display: inline-block;
+        #angelList-logo {
+            position: relative;
+            bottom: -3px;
+        }
+        #github-logo {
+            margin-left: 25px;
+            margin-right: 12px;
+        }
+    }
 }
 
 .body-container {

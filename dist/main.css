@@ -9,8 +9,8 @@
   font-family: Press Start twoP;
   src: url("../assets/fonts/PressStart2P-Regular.ttf");
 }
-h1, nav {
-  margin-bottom: 10px;
+h1 {
+  margin-bottom: 20px;
 }
 
 body {
@@ -20,8 +20,28 @@ body {
   user-select: none;
 }
 
+.nav-bar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
 nav.professional-links {
   z-index: 100;
+  position: absolute;
+  right: 0px;
+  bottom: 15px;
+}
+nav.professional-links a {
+  display: inline-block;
+}
+nav.professional-links a #angelList-logo {
+  position: relative;
+  bottom: -3px;
+}
+nav.professional-links a #github-logo {
+  margin-left: 25px;
+  margin-right: 12px;
 }
 
 .body-container {
