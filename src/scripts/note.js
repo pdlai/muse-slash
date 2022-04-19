@@ -5,7 +5,7 @@ const NOTE_DISTANCE_PER_STEP = NOTE_DISTANCE_PER_COUNT / 8;
 // calculating crochet divided by distance per count
 const NOTE_SPEED = (17.7884615384615)*(2/3);
 // delay for the song
-const NOTE_SPAWN_DISTANCE = -335;
+const NOTE_SPAWN_DISTANCE = -290;
 
 const LOOP_DELAY = 8;
 

@@ -42,8 +42,17 @@ class GameView {
             }
             if (action === "main-menu"){
                 this.removeKeyEvent();
+                this.stopGameLoop();
                 this.game = new Game();
                 this.drawNewGame();
+            }
+            if (action === "restart-level"){
+                this.game = new Game();
+                this.drawNewGame();
+                this.game.play("brain_power");
+                this.setKeyEvent();
+                this.startGameLoop();
+                this.game.music.play();
             }
         });
     }
@@ -64,13 +73,48 @@ class GameView {
         if (this.elapsed > this.fpsInterval){
             this.then = this.now - (this.elapsed % this.fpsInterval);
 
-            this.updateStep();
-            this.draw();
+            if (this.gameLose()){
+                this.removeKeyEvent();
+                Menu.hidePauseButton();
+                Menu.showLoseMenu();
+                Menu.stopBackground();
+                this.game.music.pause();
+                this.game.movePlayer();
+                this.drawDeath();
+            } else {
+                if (this.gameWin()){
+                    this.removeKeyEvent();
+                    Menu.hidePauseButton();
+                    Menu.showWinMenu();
+                    this.game.music.pause();
+                }
+                this.updateStep();
+                this.draw();
+            }
         }
     }
 
     stopGameLoop(){
         cancelAnimationFrame(this.requestId);
+    }
+
+    gameWin(){
+        let last_note_index = this.game.songMap.length-1;
+        let last_note = this.game.songMap[last_note_index];
+        if (last_note.x <= -last_note.scaledWidth * 20){
+            return true;
+        }
+        return false;
+    }
+
+    gameLose(){
+        if (this.game.lives <= 0) {
+            if ( this.game.player.state !== "death" ){
+                this.game.player.changeState("death");
+            }
+            return true;
+        }
+        return false;
     }
 
     setKeyEvent(){
@@ -95,6 +139,13 @@ class GameView {
         this.game.songMap.forEach( note => {
             note.draw(this.ctx);
         })
+        this.game.player.draw(this.ctx);
+        this.game.drawScore(this.ctx);
+    }
+
+    drawDeath(){
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.background.draw(this.ctx);
         this.game.player.draw(this.ctx);
         this.game.drawScore(this.ctx);
     }

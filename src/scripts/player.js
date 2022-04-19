@@ -242,9 +242,9 @@ Player.prototype.drawDeath = function(ctx){
         this.x, this.y, this.width*PLAYER_SCALE_RATIO, this.height*PLAYER_SCALE_RATIO);
         
     this.loopIndex++;
-    if (this.loopIndex > RUN_DELAY){
+    if (this.loopIndex > RUN_DELAY * 5){
         this.frameCount++;
-        if (this.frameCount >= this.numFrames) this.changeState("run");
+        if (this.frameCount >= this.numFrames) this.frameCount = this.numFrames - 1;
         this.loopIndex = 0;
     }
 }

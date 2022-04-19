@@ -23,6 +23,20 @@ const Menu = {
             this.showMainMenu();
             return "main-menu";
         }
+        if ( e.target === document.getElementById("restart-level-button") ){
+            this.hidePauseMenu();
+            this.startBackground();
+            return "restart-level";
+        }
+        if ( e.target === document.getElementById("play-again-button") || 
+             e.target === document.getElementById("play-again-button-2") ){
+                this.hidePauseButton();
+                this.stopBackground();
+                this.showMainMenu();
+                this.hideWinMenu();
+                this.hideLoseMenu();
+                return "main-menu";
+        }
     },
 
     startBackground(){
@@ -67,7 +81,27 @@ const Menu = {
     hidePauseButton: function(){
         const pauseButton = document.getElementById("pause-button");
         pauseButton.className = "pause-button hidden";
-    }
+    },
+
+    showWinMenu: function(){
+        const winMessage = document.getElementById("win-message-container");
+        winMessage.className = "win-message-container";
+    },
+
+    hideWinMenu: function(){
+        const winMessage = document.getElementById("win-message-container");
+        winMessage.className = "win-message-container hidden";
+    },
+
+    showLoseMenu: function(){
+        const loseMessage = document.getElementById("lose-message-container");
+        loseMessage.className = "lose-message-container";
+    },
+
+    hideLoseMenu: function(){
+        const loseMessage = document.getElementById("lose-message-container");
+        loseMessage.className = "lose-message-container hidden";
+    },
 }
 
 export default Menu;

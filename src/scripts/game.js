@@ -22,9 +22,7 @@ class Game {
         this.player = new Player(this.canvas);
 
         this.hitSound = new Audio("./assets/sounds/slap1.wav");
-        this.hitSound.volume = 0.35;
         this.music = new Audio("./assets/sounds/brain_power_song.mp3");
-        this.music.volume = 0.35;
         this.setVolumeEvent();
     }
 
@@ -161,6 +159,8 @@ class Game {
     
     setVolumeEvent(){
         let volume = document.getElementById("volume-slider");
+        this.hitSound.volume = volume.value / 100;
+        this.music.volume = volume.value / 100;
         volume.addEventListener("change", (e) => {
             this.hitSound.volume = e.currentTarget.value / 100;
             this.music.volume = e.currentTarget.value / 100;
@@ -170,10 +170,10 @@ class Game {
     drawScore(ctx){
         ctx.fillStyle = "whitesmoke";
         ctx.font = "28px Press Start twoP";
-        ctx.fillText("Score: ", 10, 50);
-        ctx.fillText("Life: ", 10, 100);
-        ctx.fillText(this.score, 200, 50);
-        ctx.fillText(this.lives, 200, 100);
+        ctx.fillText("Score: ", 30, 60);
+        ctx.fillText("Life: ", 30, 110);
+        ctx.fillText(this.score, 210, 60);
+        ctx.fillText(this.lives, 210, 110);
     }
 }
 
