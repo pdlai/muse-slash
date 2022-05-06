@@ -1,38 +1,84 @@
 # MuseSlash
-MuseSlash is a fast paced music rhythm game where you hit notes that appear on the screen to score points. Notes will appear on the right side of the screen and slide towards the left. Missing too many notes will cause you to lose the game.
+MuseSlash is a fast-paced music rhythm game where you hit notes to the beat of the music to score points. Notes will appear on the right side of the screen and slide towards the left. Missing too many notes will cause you to lose the game.
 
-**Live Link:** [Muse Slash Demo](https://pdlai.github.io/muse-slash/)
+**Live Link:** [Muse Slash](https://pdlai.github.io/muse-slash/)
+<br>
+<br>
+<p align="center">
+  <img src="https://github.com/pdlai/muse-slash/blob/main/muse_slash_demo_large.gif" alt="muse-slash-gif"></a></img>
+</p>
 
-## Features and MVPs
-- Will have a clickable view to start game, adjust the volume, view instructions
-- At least once playable song with regular notes and slide notes
-- Keeps track of current score and lives
+## Unique Challenges
+### FPS Throttling
+The method `requestAnimationFrame` is called on every frame refresh. This means that the animation will run faster on monitors with higher frames per second. To solve this, we first calculate the interval of time in milleseconds that needs to pass before we call the next frame. Once the interval of time has passed, we add any extra elapsed time towards the next time interval.
 
-In addition
-- animations and sprites for hitting correct notes
-- An About model describing the background and rules of the game
-- A production README
+```javascript
+startGameLoop(){
+    this.fpsInterval = 1000 / FPS;
+    this.then = Date.now();
+    this.startTime = this.then;
+    this.gameLoop();
+}
 
-## WireFrames
+gameLoop(){
+    this.requestId = requestAnimationFrame(this.gameLoop.bind(this));
 
-<img src="https://github.com/pdlai/muse-slash/blob/main/wireframe.png"></img>
+    this.now = Date.now();
+    this.elapsed = this.now - this.then;
 
-- Nav links include links to Github repo, LinkedIn and AngelList, and the About modal.
-- Game controls will be included in background until game start.
-- Health Bar will show a guage that decreases as health is lost.
-- Displays current score and highest score.
-- Menu will have restart, pause, and menu
-- Sound can be mute/unmute
-- Drop menu and adjustable sound bar (bonus)
+    if (this.elapsed > this.fpsInterval){
+        this.then = this.now - (this.elapsed % this.fpsInterval);
+        
+        // draw stuff here
+    }
+}
+```
+
+### Song Mapping
+I used musical notation in order to structure the notes in sets of 8 beats (an 8-count). In the snippet below, we are in the 17th 8-count and each note can be a step from 1 through 8. By using this organization, we only need to change the BPM (beats per minute) in order to calculate the new speed of a different song.
+```javascript
+const brainPower = {
+  bpm: 170,
+  layout: [
+    { count: 17, step: 1, zone: "bot", slide: 2},
+    { count: 17, step: 3, zone: "top"},
+    { count: 17, step: 3.33, zone: "top"},
+    { count: 17, step: 3.66, zone: "top"},
+    { count: 17, step: 4, zone: "top"},
+    { count: 17, step: 4.5, zone: "top"},
+    { count: 17, step: 5, zone: "bot"},
+    { count: 17, step: 5.66, zone: "bot"},
+    { count: 17, step: 6.33, zone: "bot"},
+    { count: 17, step: 7, zone: "top"},
+    { count: 17, step: 7.25, zone: "top"},
+    { count: 17, step: 7.5, zone: "top"},
+    { count: 17, step: 7.75, zone: "top"},
+    { count: 17, step: 8, zone: "top", slide: 1}
+    
+    // 37 eight counts
+    // 104 seconds song duration
+    // 2.8108 seconds per eight count
+    // lets say travel distance is 3000 pixels for each note
+    // travel 3000px in 2.8108 sceonds, is 1067.31 px/second
+    // 60fps, 17.788 pixels per frame movement
+    // 120fps, 17.788 divide by 2
+  ]
+}
+```
 
 ## Technologies
-- Javascript
-- Particles.js
-- Anime.js
+- Vanilla Javascript
+- Webpack
+- Babel
 
-## Implementation Timeline
-- Friday and Weekend: Set up webpack, draw some elements on canvas, html elements for all the clickable buttons, figure out game logic
-- Monday: Game logic for single notes and slide notes, mapping level
-- Tuesday: Stylization, adding animation sprites
-- Wednesday: Fix broken stuff
-- Thursday: Deploy to Github pages
+## Future Plans
+- Add slider notes that you have to hold for a duration
+- Animations for when two notes are hit at the same time
+- Animated health bar
+- Combo tracker
+
+## Credit
+- This game was inspired by [Muse Dash](https://store.steampowered.com/app/774171/Muse_Dash/) developed by PeroPeroGames.
+- [LuizMelo](https://luizmelo.itch.io/) for character sprites
+- [ansimuz](https://ansimuz.itch.io/) for monster sprites
+- [Eder Muniz](https://edermunizz.itch.io/) for background art
